@@ -30,7 +30,7 @@ public class MapaServlet extends HttpServlet {
 //		out.print("<html><body>");
 //		out.print("<h3>Hello Servlet</h3>");
 //		out.print("</body></html>");
-		String nextJSP = "/searchResults.jsp";
+		String nextJSP = "/map.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
 		dispatcher.forward(request,response);
 	}
