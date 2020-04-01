@@ -23,8 +23,11 @@ public class MapaServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		logger.info("lat': "+request.getParameter("lat"));
-		logger.info("long: "+request.getParameter("long"));
+		logger.info("lat   : "+request.getParameter("lat"));
+		logger.info("long  : "+request.getParameter("long"));
+		logger.info("width : "+request.getParameter("width"));
+		logger.info("height: "+request.getParameter("height"));
+		logger.info("zoom  : "+request.getParameter("zoom"));
 //		response.setContentType("text/html");
 //		PrintWriter out = response.getWriter();
 //		out.print("<html><body>");

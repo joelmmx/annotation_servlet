@@ -16,9 +16,9 @@
 	</head>
 	<body>
 		<div>
-			<div id="mapid" align="center" style="width: 350px; height: 550px;"></div>
+			<div id="mapid" align="center" style="width: <%= request.getParameter("width") %>px; height: <%= request.getParameter("height") %>px;"></div>
 			<script> 				
-			var map = L.map('mapid', {center: [<%= request.getParameter("lat") %>,<%= request.getParameter("long") %>],zoom: 17});
+			var map = L.map('mapid', {center: [<%= request.getParameter("lat") %>,<%= request.getParameter("long") %>],zoom: <%= request.getParameter("zoom") %>});
 			var basemaps = {
 				
 			    Combinado: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
