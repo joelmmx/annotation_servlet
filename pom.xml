@@ -42,8 +42,40 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<finalName>mapservice</finalName>
+		<plugins>
+		<plugin>
+		<groupId>org.wildfly.plugins</groupId>
+		<artifactId>wildfly-maven-plugin</artifactId>
+		<version>2.1.0.Beta1</version>
+		<configuration>
+			<hostname>3.224.241.39</hostname>
+			<port>9990</port>
+			<groupId>mx.ine.cartografia</groupId>
+			<artifactId>mapservice</artifactId>
+			<name>mapservice.war</name>
+			<username>joelmmx</username>
+		</configuration>
+		<executions>
+			<execution>
+				<id>undeploy</id>
+				<phase>clean</phase>
+				<goals>
+					<goal>undeploy</goal>
+				</goals>
+				<configuration>
+					<ignoreMissingDeployment>true</ignoreMissingDeployment>
+				</configuration>
+			</execution>
+			<execution>
+				<phase>package</phase>
+				<goals>
+					<goal>deploy</goal>
+				</goals>
+			</execution>
+		</executions>
+	</plugin>
+	</plugins>
 	</build>
 </project>

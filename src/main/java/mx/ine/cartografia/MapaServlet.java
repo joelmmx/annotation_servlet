@@ -1,6 +1,7 @@
 package mx.ine.cartografia;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 //import java.io.PrintWriter;
@@ -23,11 +24,24 @@ public class MapaServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		logger.info("lat   : "+request.getParameter("lat"));
-		logger.info("long  : "+request.getParameter("long"));
-		logger.info("width : "+request.getParameter("width"));
-		logger.info("height: "+request.getParameter("height"));
-		logger.info("zoom  : "+request.getParameter("zoom"));
+		Enumeration<String> parameterNames = request.getParameterNames();
+		 
+        while (parameterNames.hasMoreElements()) {
+ 
+            String line = parameterNames.nextElement();
+ 
+            String[] paramValues = request.getParameterValues(line);
+            line += " [";
+            for (int i = 0; i < paramValues.length; i++) {
+            	if(i!=paramValues.length-1)
+            		line+= paramValues[i] + ",";
+            	else
+            		line+= paramValues[i];
+            }
+            logger.info(line+"]");
+            line += " [";
+        }
+	logger.info("-------------------------------------------------------");
 //		response.setContentType("text/html");
 //		PrintWriter out = response.getWriter();
 //		out.print("<html><body>");
