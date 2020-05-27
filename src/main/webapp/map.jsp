@@ -20,32 +20,52 @@
 			<script> 				
 			var map = L.map('mapid', {center: [<%= request.getParameter("lat") %>,<%= request.getParameter("long") %>],zoom: <%= request.getParameter("zoom") %>});
 			var basemaps = {
+					
+				    Combinado: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
+				        layers: 'dce:vialidad09,dce:manzana09,dce:seccion09,dce:colonia09,dce:colonia_puntual09,geoloc15:vialidad15,geoloc15:manzana15,geoloc15:seccion15,geoloc15:colonia15,geoloc15:colonia_puntual15'
+				    }),	
+				    				
+				    Manzanas: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
+				        layers: 'dce:manzana09'
+				    }),
 				
-			    Combinado: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
-			        layers: 'dce:vialidad09,dce:manzana09,dce:seccion09,dce:colonia09,colonia_puntual09'
-			    }),	
-			    				
-			    Manzanas: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
-			        layers: 'dce:manzana09'
-			    }),
-			
-			    Vialidades: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
-			        layers: 'dce:vialidad09'
-			    }),
-			    
-			    	Colonias: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
-			        layers: 'dce:colonia09'
-			    }),
-			    
-			    ColoniaPuntual: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
-			        layers: 'dce:colonia_puntual09'
-			    }),	 
-			    
-			    Secciones: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
-			        layers: 'dce:seccion09'
-			    })
-			    		    
-			};	
+				    Vialidades: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
+				        layers: 'dce:vialidad09'
+				    }),
+				    
+				    	Colonias: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
+				        layers: 'dce:colonia09'
+				    }),
+				    
+				    ColoniaPuntual: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
+				        layers: 'dce:colonia_puntual09'
+				    }),	 
+				    
+				    Secciones: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
+				        layers: 'dce:seccion09'
+				    }),
+				    
+				    Manzanas2: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
+				        layers: 'geoloc15:manzana15'
+				    }),
+				
+				    Vialidades2: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
+				        layers: 'geoloc15:vialidad15'
+				    }),
+				    
+				    	Colonias2: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
+				        layers: 'geoloc15:colonia15'
+				    }),
+				    
+				    ColoniaPuntual2: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
+				        layers: 'geoloc15:colonia_puntual15'
+				    }),	 
+				    
+				    Secciones2: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
+				        layers: 'geoloc15:seccion15'
+				    })
+				    		    
+				};
 			L.control.layers(basemaps).addTo(map);
 			basemaps.Combinado.addTo(map);
 			L.marker([<%= request.getParameter("lat") %>,<%= request.getParameter("long") %>]).addTo(map);
