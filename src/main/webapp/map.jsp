@@ -19,17 +19,18 @@
 			var map = L.map('mapid', {center: [<%= request.getParameter("lat") %>,<%= request.getParameter("long") %>],zoom: <%= request.getParameter("zoom") %>});
 			var basemaps = {
 				
-			    mapas: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
-			        layers: 'dce:colonia_a15,dce:colonia_a09,dce:seccion15,dce:seccion09,dce:manzana09,dce:manzana15,dce:ne09,dce:ne15,dce:pasto09,dce:pasto15,dce:adoquin09,dce:adoquin15,dce:vialidades_colonia09,dce:vialidades_colonia15'
-			    }),	
-			    			
-			    09: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
-			        layers: 'dce:colonia_a09,dce:seccion09,dce:manzana09,dce:ne09,dce:pasto09,dce:adoquin09,dce:vialidades_colonia09'
-			    }),
-			        
-				15: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
-			        layers: 'dce:colonia_a15,dce:seccion15,dce:manzana15,dce:ne15,dce:pasto15,dce:adoquin15,dce:vialidades_colonia15'
-			    })
+					mapas: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
+				        layers: 'dce:vialidades_colonia09,dce:vialidades_colonia15,dce:colonia_a15,dce:colonia_a09,dce:seccion15,dce:seccion09,dce:manzana09,dce:manzana15,dce:ne09,dce:ne15,dce:pasto09,dce:pasto15,dce:adoquin09,dce:adoquin15,dce:servicios09,dce:servicios15'
+				    }),	
+				    			
+				    09: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
+				        layers: 'dce:vialidades_colonia09,dce:colonia_a09,dce:seccion09,dce:manzana09,dce:ne09,dce:pasto09,dce:adoquin09,dce:servicios09'
+				    }),
+				        
+					15: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
+				        layers: 'dce:vialidades_colonia15,dce:colonia_a15,dce:seccion15,dce:manzana15,dce:ne15,dce:pasto15,dce:adoquin15,dce:servicios15'
+				    })
+
 			};	
 			L.control.layers(basemaps).addTo(map);
 			basemaps.mapas.addTo(map);
