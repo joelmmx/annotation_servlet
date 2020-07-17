@@ -18,6 +18,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
+		<pro.ip.geo.server>66.97.42.137</pro.ip.geo.server>
+		<pro.port.geo.server>8081</pro.port.geo.server>
 	</properties>
 
 	<dependencies>
@@ -44,13 +46,19 @@
 	</dependencies>
 	<build>
 		<finalName>mapservice</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/webapp</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 		<plugin>
 		<groupId>org.wildfly.plugins</groupId>
 		<artifactId>wildfly-maven-plugin</artifactId>
 		<version>2.1.0.Beta1</version>
 		<configuration>
-			<hostname>3.224.241.39</hostname>
+			<hostname>127.0.0.1</hostname>
 			<port>9990</port>
 			<groupId>mx.ine.cartografia</groupId>
 			<artifactId>mapservice</artifactId>

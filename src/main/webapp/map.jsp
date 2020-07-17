@@ -19,16 +19,40 @@
 			var map = L.map('mapid', {center: [<%= request.getParameter("lat") %>,<%= request.getParameter("long") %>],zoom: <%= request.getParameter("zoom") %>});
 			var basemaps = {
 				
-					mapas: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
-				        layers: 'dce:vialidades_colonia09,dce:vialidades_colonia15,dce:colonia_a15,dce:colonia_a09,dce:seccion15,dce:seccion09,dce:manzana09,dce:manzana15,dce:ne09,dce:ne15,dce:pasto09,dce:pasto15,dce:adoquin09,dce:adoquin15,dce:servicios09,dce:servicios15'
+					mapas: L.tileLayer.wms('http://${pro.ip.geo.server}:${pro.port.geo.server}/geoserver/dce/wms?', {
+				        layers: 'dce:vialidades_colonia<%= request.getParameter("entidad") %>,dce:vialidades_colonia15,dce:colonia_a15,dce:colonia_a<%= request.getParameter("entidad") %>,dce:seccion15,dce:seccion<%= request.getParameter("entidad") %>,dce:manzana<%= request.getParameter("entidad") %>,dce:manzana15,dce:ne<%= request.getParameter("entidad") %>,dce:ne15,dce:pasto<%= request.getParameter("entidad") %>,dce:pasto15,dce:adoquin<%= request.getParameter("entidad") %>,dce:adoquin15,dce:servicios<%= request.getParameter("entidad") %>,dce:servicios15'
 				    }),	
 				    			
-				    09: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
-				        layers: 'dce:vialidades_colonia09,dce:colonia_a09,dce:seccion09,dce:manzana09,dce:ne09,dce:pasto09,dce:adoquin09,dce:servicios09'
+				    vialidad: L.tileLayer.wms('http://${pro.ip.geo.server}:${pro.port.geo.server}/geoserver/dce/wms?', {
+				        layers: 'dce:vialidades_colonia<%= request.getParameter("entidad") %>'
 				    }),
-				        
-					15: L.tileLayer.wms('http://66.97.42.137:8081/geoserver/dce/wms?', {
-				        layers: 'dce:vialidades_colonia15,dce:colonia_a15,dce:seccion15,dce:manzana15,dce:ne15,dce:pasto15,dce:adoquin15,dce:servicios15'
+
+				    colonia: L.tileLayer.wms('http://${pro.ip.geo.server}:${pro.port.geo.server}/geoserver/dce/wms?', {
+				        layers: 'dce:colonia_a<%= request.getParameter("entidad") %>'
+				    }),			        
+
+				    seccion: L.tileLayer.wms('http://${pro.ip.geo.server}:${pro.port.geo.server}/geoserver/dce/wms?', {
+				        layers: 'dce:seccion<%= request.getParameter("entidad") %>'
+				    }),		
+
+				    manzana: L.tileLayer.wms('http://${pro.ip.geo.server}:${pro.port.geo.server}/geoserver/dce/wms?', {
+				        layers: 'dce:manzana<%= request.getParameter("entidad") %>'
+				    }),				    
+
+				    num_ext: L.tileLayer.wms('http://${pro.ip.geo.server}:${pro.port.geo.server}/geoserver/dce/wms?', {
+				        layers: 'dce:ne<%= request.getParameter("entidad") %>'
+				    }),				    
+
+				    pasto: L.tileLayer.wms('http://${pro.ip.geo.server}:${pro.port.geo.server}/geoserver/dce/wms?', {
+				        layers: 'dce:pasto<%= request.getParameter("entidad") %>'
+				    }),		
+				    
+				    adoquin: L.tileLayer.wms('http://${pro.ip.geo.server}:${pro.port.geo.server}/geoserver/dce/wms?', {
+				        layers: 'dce:adoquin<%= request.getParameter("entidad") %>'
+				    }),	
+				    
+				    servicios: L.tileLayer.wms('http://${pro.ip.geo.server}:${pro.port.geo.server}/geoserver/dce/wms?', {
+				        layers: 'dce:servicios<%= request.getParameter("entidad") %>'
 				    })
 
 			};	
