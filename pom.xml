@@ -46,44 +46,51 @@
 	</dependencies>
 	<build>
 		<finalName>mapservice</finalName>
-		<resources>
-			<resource>
-				<directory>src/main/webapp</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
 		<plugins>
-		<plugin>
-		<groupId>org.wildfly.plugins</groupId>
-		<artifactId>wildfly-maven-plugin</artifactId>
-		<version>2.1.0.Beta1</version>
-		<configuration>
-			<hostname>127.0.0.1</hostname>
-			<port>9990</port>
-			<groupId>mx.ine.cartografia</groupId>
-			<artifactId>mapservice</artifactId>
-			<name>mapservice.war</name>
-			<username>joelmmx</username>
-		</configuration>
-		<executions>
-			<execution>
-				<id>undeploy</id>
-				<phase>clean</phase>
-				<goals>
-					<goal>undeploy</goal>
-				</goals>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.0.1</version>
 				<configuration>
-					<ignoreMissingDeployment>true</ignoreMissingDeployment>
+					<webResources>
+						<resource>
+							<directory>${basedir}/src/main/webapp</directory>
+							<filtering>true</filtering>
+						</resource>
+					</webResources>
 				</configuration>
-			</execution>
-			<execution>
-				<phase>package</phase>
-				<goals>
-					<goal>deploy</goal>
-				</goals>
-			</execution>
-		</executions>
-	</plugin>
-	</plugins>
+			</plugin>
+			<plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<version>2.1.0.Beta1</version>
+				<configuration>
+					<hostname>127.0.0.1</hostname>
+					<port>9990</port>
+					<groupId>mx.ine.cartografia</groupId>
+					<artifactId>mapservice</artifactId>
+					<name>mapservice.war</name>
+					<username>joelmmx</username>
+				</configuration>
+				<executions>
+					<execution>
+						<id>undeploy</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>undeploy</goal>
+						</goals>
+						<configuration>
+							<ignoreMissingDeployment>true</ignoreMissingDeployment>
+						</configuration>
+					</execution>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 </project>
