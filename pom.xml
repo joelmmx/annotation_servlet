@@ -50,7 +50,7 @@
 		<artifactId>wildfly-maven-plugin</artifactId>
 		<version>2.1.0.Beta1</version>
 		<configuration>
-			<hostname>3.224.241.39</hostname>
+			<hostname>40.124.33.201</hostname>
 			<port>9990</port>
 			<groupId>mx.ine.cartografia</groupId>
 			<artifactId>mapservice</artifactId>
